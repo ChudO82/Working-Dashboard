@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Простой Дашборд</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="dashboard">
+        <!-- Кнопка для переключения режима -->
+        <div class="theme-switcher">
+            <button onclick="toggleTheme()" id="themeButton">
+                🌙 <!-- Иконка луны по умолчанию -->
+            </button>
+        </div>
+
+        <!-- Отображение информации о пользователе -->
+        <section class="user-display">
+            <p><strong>Пользователь:</strong> <span id="displayName">Не указано</span></p>
+            <p><strong>Должность:</strong> <span id="displayPosition">Не указано</span></p>
+            <p><strong>Отдел:</strong> <span id="displayDepartment">Не указано</span></p>
+        </section>
+
+        <!-- Информация о пользователе -->
+        <button onclick="toggleUserInput()" class="toggle-button">
+            <span>Ввод пользователя</span>
+            <span class="icon">▼</span>
+        </button>
+        <section id="userInputSection" class="user-info">
+            <div class="user-input">
+                <label for="user-input">Введите данные о пользователе</label>
+                <input type="text" id="userName" placeholder="Ваше имя">
+                <select id="userPosition">
+                    <option value="" disabled selected>Выберите должность</option>
+                    <option value="Инженер-конструктор">Инженер-конструктор</option>
+                    <option value="Инженер-конструктор 2 кат.">Инженер-конструктор 2 кат.</option>
+                    <option value="Инженер-конструктор 1 кат.">Инженер-конструктор 1 кат.</option>
+                    <option value="Вед. Инженер-конструктор">Вед. Инженер-конструктор</option>
+                    <option value="Зам. начальника">Зам. начальника</option>
+                    <option value="Начальник отдела">Начальник отдела</option>
+                </select>
+                <select id="userDepartment">
+                    <option value="" disabled selected>Выберите отдел</option>
+                    <option value="ОКА">ОКА</option>
+                    <option value="ОСЭП">ОСЭП</option>
+                    <option value="ОСЭС">ОСЭС</option>
+                    <option value="ОЭМ">ОЭМ</option>
+                </select>
+                <button onclick="saveUserInfo()">Сохранить</button>
+            </div>
+        </section>
+
+        <!-- Заголовок дашборда -->
+        <h1>Мой Дашборд</h1>
+
+        <!-- Контейнер для ввода задачи -->
+        <section class="input-container">
+            <input type="text" id="taskInput" placeholder="Введите задачу">
+            <select id="prioritySelect">
+                <option value="low">Низкий</option>
+                <option value="normal" selected>Обычный</option>
+                <option value="high">Высокий</option>
+            </select>
+            <button onclick="addTask()">Добавить задачу</button>
+            <button onclick="deleteAllTasks()">Удалить все задачи</button>
+        </section>
+
+        <!-- Поиск задач -->
+        <h2>Поиск задач</h2>
+        <section class="search-container">
+            <input type="text" id="searchInput" placeholder="Поиск задач..." oninput="searchTasks()">
+        </section>
+
+        <!-- Зона для задач в работе -->
+        <h2>Задачи в работе</h2>
+        <section id="activeTaskContainer" class="task-container"></section>
+
+        <!-- Зона для выполненных задач -->
+        <h2>Выполненные задачи</h2>
+        <section id="completedTaskContainer" class="task-container"></section>
+
+        <!-- Фильтр задач -->
+        <h3>Фильтр задач и сортировка</h3>
+        <section class="filter-sort-container">
+            <label for="filterSelect">Фильтр:</label>
+            <select id="filterSelect" onchange="filterTasks()">
+                <option value="all">Все задачи</option>
+                <option value="high">Высокий приоритет</option>
+                <option value="normal">Обычный приоритет</option>
+                <option value="low">Низкий приоритет</option>
+                <option value="completed">Выполненные</option>
+                <option value="active">В работе</option>
+            </select>
+
+            <label for="sortSelect">Сортировка:</label>
+            <select id="sortSelect" onchange="sortTasksByDate()">
+                <option value="newest">Сначала новые</option>
+                <option value="oldest">Сначала старые</option>
+            </select>
+        </section>
+
+        <!-- Статистика -->
+        <section class="stats">
+            <p>Активных задач: <span id="activeTasksCount">0</span></p>
+            <p>Выполненных задач: <span id="completedTasksCount">0</span></p>
+        </section>
+
+        <!-- Информация о программе -->
+        <footer class="footer">
+            <section class="export-import-container">
+                <button onclick="exportTasks()">Экспорт в JSON</button>
+                <label for="fileInput" class="file-upload">
+                    Импорт из JSON
+                    <input type="file" id="fileInput" accept=".json" onchange="importTasks(event)" style="display: none;">
+                </label>
+            </section>
+            <p>Версия программы: <strong>0.8.0</strong></p>
+            <p>Соглашение об использовании: программа предоставляется бесплатно.</p>
+            <p>Программа сделана при помощи <strong>DeepSeek</strong>.</p>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,460 @@
+@media (max-width: 768px) {
+    .dashboard {
+        width: 100%;
+        padding: 10px;
+    }
+
+    .task {
+        width: 100%;
+    }
+
+    .input-container, .user-input {
+        flex-direction: column;
+    }
+
+    .theme-switcher {
+        position: static;
+        margin-bottom: 10px;
+    }
+}
+
+/* Стили для кнопки переключения темы */
+.theme-switcher {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+}
+
+.theme-switcher button {
+    padding: 10px;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    font-size: 24px; /* Размер иконки */
+    color: #333; /* Цвет иконки в светлом режиме */
+    transition: color 0.3s;
+}
+
+.theme-switcher button:hover {
+    color: #007bff; /* Цвет иконки при наведении */
+}
+
+body.dark-mode .theme-switcher button {
+    color: #fff; /* Цвет иконки в тёмном режиме */
+}
+
+body.dark-mode .theme-switcher button:hover {
+    color: #007bff; /* Цвет иконки при наведении в тёмном режиме */
+}
+
+/* Стили для выпадающего меню приоритета */
+#prioritySelect {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+    width: 100%;
+    box-sizing: border-box;
+    background-color: #fff;
+    color: #333;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+/* Стили для выпадающего меню в тёмном режиме */
+body.dark-mode #prioritySelect {
+    background-color: #555;
+    color: #fff;
+    border-color: #777;
+}
+
+/* Стили для опций выпадающего меню */
+#prioritySelect option {
+    padding: 10px;
+    background-color: #fff;
+    color: #333;
+}
+
+/* Стили для опций выпадающего меню в тёмном режиме */
+body.dark-mode #prioritySelect option {
+    background-color: #555;
+    color: #fff;
+}
+
+/* Стили для приоритетов задач */
+.task.priority-low {
+    border-left: 5px solid #28a745; /* Зелёный для низкого приоритета */
+}
+
+.task.priority-normal {
+    border-left: 5px solid #007bff; /* Синий для обычного приоритета */
+}
+
+.task.priority-high {
+    border-left: 5px solid #dc3545; /* Красный для высокого приоритета */
+}
+
+/* Общие стили */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    min-height: 100vh;
+    background-color: #fff;
+    color: #333;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.dashboard {
+    background-color: #f8f9fa;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 90%;
+    max-width: 1200px;
+    max-height: 90vh;
+    overflow-y: auto;
+    text-align: center;
+    transition: background-color 0.3s, box-shadow 0.3s;
+    margin: 20px 0;
+}
+
+body.dark-mode .dashboard {
+    background-color: #444;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
+    color: #fff;
+}
+
+/* Стили для section */
+section.user-display, section.user-info, section.stats, section.export-import-container {
+    margin-bottom: 20px;
+    padding: 15px;
+    background-color: #e9ecef;
+    border-radius: 8px;
+    text-align: left;
+}
+
+body.dark-mode section.user-display, body.dark-mode section.user-info, body.dark-mode section.stats {
+    background-color: #555;
+    color: #fff;
+}
+
+body.dark-mode section.user-display strong {
+    color: #fff;
+}
+
+/* Стили для кнопок */
+.toggle-button {
+    background-color: #007bff;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    width: 100%;
+    text-align: left;
+    margin-bottom: 5px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.toggle-button:hover {
+    background-color: #0056b3;
+}
+
+.icon {
+    font-size: 12px;
+}
+
+.user-info button {
+    padding: 10px 20px;
+    background-color: #28a745;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.user-info button:hover {
+    background-color: #218838;
+}
+
+.user-input {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.user-input input, .user-input select {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+/* Стили для ввода задачи */
+.input-container {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.input-container input[type="text"] {
+    padding: 15px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+    width: 100%;
+    box-sizing: border-box;
+    background-color: #fff;
+    color: #333;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+body.dark-mode .input-container input[type="text"] {
+    background-color: #555;
+    color: #fff;
+    border-color: #777;
+}
+
+.input-container button {
+    padding: 15px;
+    background-color: #28a745;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.input-container button:hover {
+    background-color: #218838;
+}
+
+/* Стили для поиска */
+.search-container {
+    margin-bottom: 20px;
+}
+
+#searchInput {
+    padding: 15px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+/* Стили для задач */
+.task-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    justify-content: flex-start;
+    margin-bottom: 20px;
+    max-height: 300px;
+    overflow-y: auto;
+}
+
+.task {
+    background-color: #f8f9fa;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 250px;
+    cursor: grab;
+    position: relative;
+    transition: transform 0.2s, box-shadow 0.2s, background-color 0.3s;
+}
+
+body.dark-mode .task {
+    background-color: #555;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
+}
+
+.task:active {
+    cursor: grabbing;
+    transform: scale(1.02);
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+}
+
+.task.completed {
+    background-color: #e9ecef;
+    opacity: 0.7;
+}
+
+body.dark-mode .task.completed {
+    background-color: #777;
+}
+
+/* Заголовок задачи */
+.task-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.task-header div {
+    font-size: 18px;
+    font-weight: bold;
+    color: #333;
+    transition: color 0.3s;
+}
+
+body.dark-mode .task-header div {
+    color: #fff;
+}
+
+/* Время создания и закрытия */
+.task-time {
+    font-size: 12px;
+    color: #666;
+    margin-bottom: 10px;
+    transition: color 0.3s;
+}
+
+body.dark-mode .task-time {
+    color: #ccc;
+}
+
+.task-time div {
+    margin-bottom: 5px;
+}
+
+/* Кнопки действий */
+.task-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    margin-top: 10px;
+}
+
+.task-actions button {
+    padding: 5px 10px;
+    font-size: 12px;
+    border-radius: 4px;
+    cursor: pointer;
+    border: none;
+    color: #fff;
+}
+
+.task-actions button.complete {
+    background-color: #007bff;
+}
+
+.task-actions button.complete:hover {
+    background-color: #0056b3;
+}
+
+.task-actions button.delete {
+    background-color: #dc3545;
+}
+
+.task-actions button.delete:hover {
+    background-color: #c82333;
+}
+
+/* Стили для фильтра и сортировки */
+.filter-sort-container {
+    margin-bottom: 20px; /* Отступ снизу */
+    padding: 15px;
+    background-color: #e9ecef;
+    border-radius: 8px;
+    text-align: left;
+}
+
+.filter-sort-container label {
+    display: block; /* Каждая метка на новой строке */
+    margin-bottom: 5px; /* Отступ между меткой и выпадающим списком */
+    font-size: 14px;
+    color: #333;
+}
+
+.filter-sort-container select {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 14px;
+    width: 100%;
+    box-sizing: border-box;
+    margin-bottom: 10px; /* Отступ между элементами */
+    background-color: #fff;
+    color: #333;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+body.dark-mode .filter-sort-container {
+    background-color: #555;
+    color: #fff;
+}
+
+body.dark-mode .filter-sort-container label {
+    color: #fff;
+}
+
+body.dark-mode .filter-sort-container select {
+    background-color: #666;
+    color: #fff;
+    border-color: #777;
+}
+
+/* Стили для статистики */
+.stats {
+    margin-bottom: 20px;
+    padding: 10px; /* Уменьшаем отступы */
+    background-color: #e9ecef;
+    border-radius: 8px;
+    text-align: left;
+    font-size: 14px; /* Уменьшаем размер шрифта */
+}
+
+.stats p {
+    margin: 3px 0; /* Уменьшаем отступы между строками */
+    font-size: 14px; /* Уменьшаем размер шрифта */
+}
+
+body.dark-mode .stats {
+    background-color: #555;
+    color: #fff;
+}
+
+/* Стили для footer */
+footer.footer {
+    margin-top: 20px;
+    padding-top: 10px;
+    border-top: 1px solid #ccc;
+    font-size: 14px;
+    color: #666;
+    text-align: center;
+    transition: color 0.3s, border-color 0.3s;
+}
+
+body.dark-mode footer.footer {
+    color: #ccc;
+    border-color: #777;
+}
+
+footer.footer p {
+    margin: 5px 0;
+}
+
+footer.footer strong {
+    color: #333;
+    transition: color 0.3s;
+}
+
+body.dark-mode footer.footer strong {
+    color: #fff;
+}
